@@ -1,135 +1,74 @@
-const canvas = document.querySelector(".borad");
-const ctx = canvas.getContext("2d");
-canvas.width = 600;
-canvas.height = 600;
+// rules.js - 규칙 검증 로직
 
-const boardSize = 19;
-const cellSize = (canvas.width - 40) / (boardSize - 1);
-let board = Array.from(Array(boardSize), () => Array(boardSize).fill(null));
-let currentPlayer = "black";
-let playerMode = "2p"; // 기본값: 2인용
-let timer = 30;
-let timerInterval;
-
-// --- 1. 오목판 그리기 ---
-function drawBoard() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = "black";
-  ctx.lineWidth = 1;
-
-  for (let i = 0; i < boardSize; i++) {
-    // 가로선
-    ctx.beginPath();
-    ctx.moveTo(20, 20 + i * cellSize);
-    ctx.lineTo(canvas.width - 20, 20 + i * cellSize);
-    ctx.stroke();
-
-    // 세로선
-    ctx.beginPath();
-    ctx.moveTo(20 + i * cellSize, 20);
-    ctx.lineTo(20 + i * cellSize, canvas.height - 20);
-    ctx.stroke();
+function checkValidMove(row, col, isBlack) {
+  if (isBlack && checkOpenThree(row, col)) {
+    return false;
   }
+  return true;
 }
 
-// --- 2. 돌 그리기 ---
-function drawStone(x, y, color) {
-  ctx.beginPath();
-  ctx.arc(20 + x * cellSize, 20 + y * cellSize, cellSize / 3, 0, 2 * Math.PI);
-  ctx.fillStyle = color;
-  ctx.fill();
-  ctx.stroke();
-}
+function checkWin(row, col, color) {
+  const directions = [
+    { dr: 0, dc: 1 },
+    { dr: 1, dc: 0 },
+    { dr: 1, dc: 1 },
+    { dr: 1, dc: -1 },
+  ];
 
-// --- 3. 가장 가까운 교차점 찾기 ---
-function getClosestIntersection(x, y) {
-  const gridX = (x - 20) / cellSize;
-  const gridY = (y - 20) / cellSize;
-
-  const closestX = Math.round(gridX);
-  const closestY = Math.round(gridY);
-
-  return { x: closestX, y: closestY };
-}
-
-// --- 4. 돌 놓기 ---
-canvas.addEventListener("click", (event) => {
-  const rect = canvas.getBoundingClientRect();
-  const x = event.clientX - rect.left;
-  const y = event.clientY - rect.top;
-
-  const pos = getClosestIntersection(x, y);
-  const i = pos.x;
-  const j = pos.y;
-
-  if (i >= 0 && i < boardSize && j >= 0 && j < boardSize && !board[j][i]) {
-    board[j][i] = currentPlayer;
-    drawStone(i, j, currentPlayer);
-
-    // 차례 바꾸기
-    currentPlayer = currentPlayer === "black" ? "white" : "black";
-    resetTimer();
-  }
-});
-
-// --- 5. 1인용 / 2인용 선택 ---
-document.querySelector("#com").addEventListener("click", () => {
-  playerMode = "1p";
-});
-document.querySelector("#user").addEventListener("click", () => {
-  playerMode = "2p";
-});
-
-// --- 6. 흑 / 백 선택 ---
-const blackButton = document.querySelector("#black");
-const whiteButton = document.querySelector("#white");
-
-blackButton.addEventListener("click", () => {
-  currentPlayer = "black";
-  blackButton.style.border = "2px solid blue";
-  whiteButton.style.border = "none";
-});
-
-whiteButton.addEventListener("click", () => {
-  currentPlayer = "white";
-  whiteButton.style.border = "2px solid blue";
-  blackButton.style.border = "none";
-});
-
-// --- 7. 30초 제한시간 ---
-function startTimer() {
-  clearInterval(timerInterval);
-  timer = 30;
-  updateTimerDisplay();
-  timerInterval = setInterval(() => {
-    timer--;
-    updateTimerDisplay();
-    if (timer <= 0) {
-      clearInterval(timerInterval);
-      alert("시간 초과! 턴이 넘어갑니다.");
-      currentPlayer = currentPlayer === "black" ? "white" : "black";
-      resetTimer();
+  for (const { dr, dc } of directions) {
+    let count = 1;
+    for (let i = 1; i < 5; i++) {
+      const r = row + dr * i,
+        c = col + dc * i;
+      if (board[r]?.[c] === color) count++;
+      else break;
     }
-  }, 1000);
+    for (let i = 1; i < 5; i++) {
+      const r = row - dr * i,
+        c = col - dc * i;
+      if (board[r]?.[c] === color) count++;
+      else break;
+    }
+    if (count >= 5) {
+      alert(
+        `${color === "black" ? "흑돌이 이겼습니다" : "흰돌이 이겼습니다."}`
+      );
+      gameStarted = false;
+      return true;
+    }
+  }
+  return false;
 }
 
-function resetTimer() {
-  clearInterval(timerInterval);
-  startTimer();
+function checkOpenThree(row, col) {
+  if (!isBlackTurn) return false; // 33규칙은 흑돌만 적용
+
+  const directions = [
+    { dr: 0, dc: 1 }, // 가로
+    { dr: 1, dc: 0 }, // 세로
+    { dr: 1, dc: 1 }, // 대각선 (\)
+    { dr: 1, dc: -1 }, // 대각선 (/)
+  ];
+
+  let openThreeCount = 0;
+
+  for (const { dr, dc } of directions) {
+    let count = 1;
+    let openEnds = 0;
+
+    for (let i = -3; i <= 3; i++) {
+      if (i === 0) continue;
+      const r = row + dr * i;
+      const c = col + dc * i;
+      if (r < 0 || r >= 19 || c < 0 || c >= 19) continue;
+      if (board[r][c] === "black") count++;
+      else if (board[r][c] === null) openEnds++;
+    }
+
+    if (count === 3 && openEnds === 2) {
+      openThreeCount++;
+    }
+  }
+
+  return openThreeCount >= 2;
 }
-
-function updateTimerDisplay() {
-  document.querySelector(".time").textContent = `Time ${timer}`;
-}
-
-// --- 8. 게임 시작하기 ---
-document.querySelector(".button-start").addEventListener("click", () => {
-  board = Array.from(Array(boardSize), () => Array(boardSize).fill(null));
-  currentPlayer = "black";
-  drawBoard();
-  startTimer();
-});
-
-// --- 초기화 ---
-drawBoard();
-startTimer();

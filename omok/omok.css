@@ -21,8 +21,8 @@
 .borad {
   border: 1px solid black;
   background-color: burlywood;
-  width: 700px;
-  height: 700px;
+  width: 665px;
+  height: 665px;
 }
 
 .menu {
@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 100px;
+  row-gap: 50px;
 }
 p {
   font-size: 20px;
@@ -54,11 +54,12 @@ p {
 .player-type {
   display: flex;
   flex-direction: row;
-  column-gap: 40px;
+  column-gap: 20px;
 }
 
 .pys {
   display: flex;
+  width: 200px;
   align-items: center;
   flex-direction: column;
 }
@@ -69,18 +70,20 @@ p {
   flex-direction: row;
   column-gap: 50px;
 }
+
 .timer-display {
   display: block;
   font-size: 30px;
   font-weight: bold;
   color: red;
   margin-top: 10px;
+  text-align: center;
 }
 
 .button {
   display: flex;
   flex-direction: row;
-  column-gap: 20px;
+  column-gap: 10px;
 }
 
 .button-start,
@@ -104,4 +107,21 @@ p {
 .button-undo:active {
   opacity: 0.75;
   transform: scale(0.95);
+}
+.point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+.point > div {
+  display: flex;
+  flex-direction: row;
+  column-gap: 100px;
+}
+
+.whitePoint,
+.blackPoint {
+  font-size: 20px;
+  font-weight: 700;
 }
