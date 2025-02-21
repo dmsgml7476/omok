@@ -1,0 +1,61 @@
+.header {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.trun {
+  border: 1px solid;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.black {
+  margin: 10px;
+  margin-left: 5px;
+}
+
+.White {
+  margin: 10px;
+  margin-right: 5px;
+}
+
+.board {
+  width: 600px;
+  height: 600px;
+  background-color: rgb(253, 194, 106);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.go .row > div {
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.btn {
+  margin: 0 auto;
+  border: 1px solid;
+  width: 150px;
+  margin-top: 20px;
+}
+
+button {
+  margin: 0 auto;
+  text-align: center;
+  justify-items: center;
+  background-color: rgb(90, 128, 253);
+  width: 150px;
+  font-weight: bold;
+  font-size: 20px;
+
+  height: 50px;
+  border-radius: 7px;
+  border: none;
+  color: white;
+}

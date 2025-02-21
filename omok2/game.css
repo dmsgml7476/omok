@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 게임 윈도우우 */
+
+.window {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid; */
+}
+
+/* 헤더 영역역 */
+
+.title {
+  text-align: center;
+  /* border: 1px solid; */
+  margin: 10px;
+}
+
+/* 차례 정보보 */
+
+.turn_box {
+  width: 600px;
+  /* border: 1px solid; */
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+}
+
+.turn {
+  /* border: 1px solid; */
+  width: 100px;
+  font-size: 30px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 오목판판 */
+
+.board {
+  margin: 10px;
+  /* border: 1px solid; */
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(250, 182, 80);
+}
+
+.table {
+  position: absolute;
+  border: 1px solid;
+  width: 550px;
+  height: 550px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.square {
+  border: 1px solid;
+  padding: 0;
+}
+
+/* 오목돌 영역 */
+
+.go {
+  position: absolute;
+  margin: 10px;
+  width: 515px;
+  height: 515px;
+  border-collapse: collapse;
+}
+
+.black {
+  background-color: black;
+  border-radius: 100%;
+}
+
+.white {
+  background-color: white;
+  border-radius: 100%;
+}
+
+/* 재시작, 홈홈 */
+
+.btn_box {
+  width: 600px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.btn {
+  width: 200px;
+  border: none;
+  background-color: rgb(100, 100, 255);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 7px;
+}
