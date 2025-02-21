@@ -90,14 +90,30 @@
 .input-style {
   width: 90%;
   height: 30px;
+  margin-top: 20px;
   outline: none;
   border: none;
   border-radius: 7px;
   transition: all 0.3s ease;
-  margin: 0 auto;
 }
 
 .input-style:focus {
   border-color: #0084ff;
   background-color: #fff;
+}
+
+@keyframes blink-effect {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blink {
+  animation: blink-effect 1s infinite; /* 1초 간격으로 계속 깜빡임 */
 }

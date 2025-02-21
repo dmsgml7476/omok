@@ -47,17 +47,119 @@ user.addEventListener("click", () => {
     input.type = "text"; // 텍스트 입력받기
     input.value = user1; // 기존 값이 있으면 그 값을 입력란에 표시
 
+    input.classList.add("input-style:focus");
     input.classList.add("input-style");
 
     input1.innerHTML = ""; // div B 내용 지우기
     input1.appendChild(input); // input 요소를 div B에 추가
 
-    input.addEventListener("blur", () => {
-      // 입력 필드에서 포커스를 잃으면 실행
-      user1 = input.value; // 입력된 값 user1에 저장
-      input1.textContent = user1; // div B의 텍스트를 user1 값으로 업데이트
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.zIndex = "999"; // 가장 위에 표시
+    document.body.appendChild(overlay); // 화면에 추가
+
+    overlay.addEventListener("click", () => {
+      input.focus();
     });
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        const inputValue = input.value.trim(); // 입력값을 공백 제거 후 가져옴
+        if (inputValue.length === 0) {
+          alert("흑돌 유저의 닉네임을 입력하세요"); // 경고문구 추가
+          return input.focus(); // 입력 필드에 포커스를 유지
+        } else if (inputValue.length > 5) {
+          alert("닉네임은 5자 이하로 정해주세요"); // 경고문구 추가
+          return input.focus(); // 입력 필드에 포커스를 유지
+        } else if (inputValue === user2) {
+          alert("닉네임이 중복. 다시 입력하세요.");
+          return input.focus;
+        } else {
+          user1 = inputValue; // 입력된 값 user1에 저장
+          input1.textContent = user1; // div B의 텍스트를 user1 값으로 업데이트
+
+          document.body.removeChild(overlay);
+        }
+      }
+    });
+
     input.focus();
+  });
+
+  W.addEventListener("click", () => {
+    const input = document.createElement("input");
+    input.type = "text"; // 텍스트 입력받기
+    input.value = user2; // 기존 값이 있으면 그 값을 입력란에 표시
+
     input.classList.add("input-style:focus");
+    input.classList.add("input-style");
+
+    input2.innerHTML = ""; // div B 내용 지우기
+    input2.appendChild(input); // input 요소를 div B에 추가
+
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.zIndex = "999"; // 가장 위에 표시
+    document.body.appendChild(overlay); // 화면에 추가
+
+    overlay.addEventListener("click", () => {
+      input.focus();
+    });
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        const inputValue = input.value.trim(); // 입력값을 공백 제거 후 가져옴
+        if (inputValue.length === 0) {
+          alert("흑돌 유저의 닉네임을 입력하세요"); // 경고문구 추가
+          return input.focus(); // 입력 필드에 포커스를 유지
+        } else if (inputValue.length > 5) {
+          alert("닉네임은 5자 이하로 정해주세요"); // 경고문구 추가
+          return input.focus(); // 입력 필드에 포커스를 유지
+        } else if (inputValue === user1) {
+          alert("닉네임이 중복. 다시 입력하세요.");
+          return input.focus;
+        } else {
+          user2 = inputValue; // 입력된 값 user2에 저장
+          input2.textContent = user2; // div B의 텍스트를 user1 값으로 업데이트
+        }
+
+        document.body.removeChild(overlay);
+        checkStartButton();
+      }
+    });
+
+    input.focus();
   });
 });
+
+const checkStartButton = () => {
+  const startButton = document.querySelector("#start"); // 동적으로 생성된 버튼 다시 가져오기
+  if (user1 && user2 && startButton) {
+    startButton.disabled = false; // 버튼 활성화
+    startButton.style.opacity = "1";
+    startButton.style.cursor = "pointer";
+
+    let isBlinking = true;
+    const blinkInterval = setInterval(() => {
+      startButton.style.opacity = isBlinking ? "0.5" : "1";
+      isBlinking = !isBlinking;
+    }, 500);
+
+    startButton.addEventListener("click", () => {
+      clearInterval(blinkInterval);
+      localStorage.setItem("user1", user1);
+      localStorage.setItem("user2", user2);
+      window.location.href = "game.html";
+    });
+  }
+};
