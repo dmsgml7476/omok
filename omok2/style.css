@@ -82,7 +82,7 @@
   border-radius: 7px;
 }
 
-.selectT {
+.todo {
   margin-bottom: 30px;
   font-size: 30px;
 }
@@ -116,4 +116,44 @@
 
 .blink {
   animation: blink-effect 1s infinite; /* 1초 간격으로 계속 깜빡임 */
+}
+
+/* 툴팁 */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 150px;
+  background-color: rgba(223, 223, 223, 0.75);
+  color: #000000;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+
+  /* 오른쪽 위치 설정 */
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-left: 10px; /* 요소와 거리 조정 */
+
+  z-index: 9999;
+
+  /* 애니메이션 효과 */
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* 마우스를 올리면 툴팁 보이기 */
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }

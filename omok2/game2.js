@@ -1,6 +1,6 @@
 const user1 = localStorage.getItem("user1");
 const user2 = localStorage.getItem("user2");
-
+const home = document.querySelector("#home");
 const board = document.querySelector(".board");
 const table = document.querySelector(".table");
 const go = document.querySelector(".go");
@@ -233,8 +233,21 @@ function closeModal() {
   location.reload();
 }
 
+function closeModalOnly() {
+  document.getElementById("winModal").style.display = "none";
+}
+
 // 새게임 처리
 
 restart.addEventListener("click", () => {
   location.reload(true);
+});
+
+// home 화면으로 돌아가기
+
+home.addEventListener("click", () => {
+  console.log("클릭 잡혔니");
+  localStorage.removeItem("user1");
+  localStorage.removeItem("user2");
+  window.location.href = "index.html";
 });

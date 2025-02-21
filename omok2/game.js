@@ -6,6 +6,7 @@ const table = document.querySelector(".table");
 const go = document.querySelector(".go");
 const restart = document.querySelector("#reset");
 const userB = document.querySelector("#black");
+const home = document.querySelector("#home");
 
 const userW = document.querySelector("#White");
 
@@ -149,8 +150,19 @@ function closeModal() {
   document.getElementById("winModal").style.display = "none";
   location.reload();
 }
+
+function closeModalOnly() {
+  document.getElementById("winModal").style.display = "none";
+}
 // 새게임 처리
 
 restart.addEventListener("click", () => {
   location.reload(true);
+});
+
+// home 화면으로 돌아가기
+
+home.addEventListener("click", () => {
+  console.log("클릭 잡혔니");
+  window.location.href = "index.html";
 });
