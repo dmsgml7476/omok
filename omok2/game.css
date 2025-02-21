@@ -8,11 +8,12 @@
 
 .window {
   width: 700px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid; */
+  border: 1px solid;
 }
 
 /* 헤더 영역역 */
@@ -96,6 +97,7 @@
   width: 600px;
   height: 40px;
   display: flex;
+
   justify-content: space-between;
   margin: 20px;
 }

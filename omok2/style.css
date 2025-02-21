@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 게임 윈도우우 */
+
+.window {
+  margin: 0 auto;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+}
+
+.title {
+  margin-top: 100px;
+  text-align: center;
+  /* border: 1px solid; */
+}
+
+.imgBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 600px;
+  height: 400px;
+}
+
+/* .img:hover {
+  transform: scale(1.05);
+} */
+
+.img {
+  border: 1px solid;
+  padding: 30px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textT {
+  /* border: 1px solid; */
+  margin-top: 20px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.match {
+  width: 450px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.match_bnt {
+  width: 200px;
+  border: none;
+  background-color: rgb(100, 100, 255);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 7px;
+}
+
+#start {
+  width: 200px;
+  margin: 0 auto;
+  border: none;
+  background-color: rgb(100, 100, 255);
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 7px;
+}
+
+.selectT {
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.input-style {
+  width: 90%;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.input-style:focus {
+  border-color: #0084ff;
+  background-color: #fff;
+}

@@ -2,6 +2,9 @@ const board = document.querySelector(".board");
 const table = document.querySelector(".table");
 const go = document.querySelector(".go");
 const restart = document.querySelector("#reset");
+const userB = document.querySelector("#black");
+
+const userW = document.querySelector("#White");
 
 // 오목판 그리기
 
@@ -48,8 +51,13 @@ tds.forEach((item) => {
         let myTurn = turn === "B";
         if (myTurn) {
           item.classList.add("black");
+          white.style.textDecoration = "underline";
+
+          black.style.textDecoration = "none";
         } else {
           item.classList.add("white");
+          white.style.textDecoration = "none";
+          black.style.textDecoration = "underline";
         }
 
         // 승리 체크
@@ -127,5 +135,5 @@ function checkWin(row, col, turn) {
 // 새게임 처리
 
 restart.addEventListener("click", () => {
-  game = new game();
+  location.reload(true);
 });

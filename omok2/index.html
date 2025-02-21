@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>오목 게임</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="window">
@@ -11,24 +12,25 @@
         <h1>즐거운 오목</h1>
       </header>
 
-      <div>
-        <div class="blackUser">
-          <img src="" alt="" />
+      <div class="imgBox">
+        <div class="img" id="B">
+          <img src="img/흑돌.png" id="imgB" style="width: 150px" />
+          <div class="textT" id="input1">Black</div>
         </div>
-        <div class="whiteUser">
-          <img src="" alt="" />
+
+        <div class="img" id="W">
+          <img src="img/백돌.png" id="imgW" style="width: 150px" />
+          <div class="textT" id="input2">White</div>
         </div>
       </div>
+      <div class="selectT">원하는 모드를 클릭하세요!</div>
 
       <div class="match">
-        <div>
-          <span>컴퓨터</span>
-        </div>
-
-        <div>
-          <span>2인용용</span>
-        </div>
+        <button class="match_bnt" id="com">컴퓨터</button>
+        <div></div>
+        <button class="match_bnt" id="useruser">2인용</button>
       </div>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>
