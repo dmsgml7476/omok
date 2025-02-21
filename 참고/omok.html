@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오목 게임</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        canvas { background-color: #f0d9b5; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>오목 게임</h1>
+    <canvas id="board" width="600" height="600"></canvas>
+    <p id="status">검은 돌 차례</p>
+    <script>
+        const canvas = document.getElementById("board");
+        const ctx = canvas.getContext("2d");
+        const size = 15;
+        const cellSize = canvas.width / size;
+        let board = Array.from({ length: size }, () => Array(size).fill(0));
+        let currentPlayer = 1;
+        
+        function drawBoard() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                    ctx.strokeRect(i * cellSize, j * cellSize, cellSize, cellSize);
+                }
+            }
+        }
+        
+        function drawStone(x, y, player) {
+            ctx.beginPath();
+            ctx.arc((x + 0.5) * cellSize, (y + 0.5) * cellSize, cellSize / 3, 0, Math.PI * 2);
+            ctx.fillStyle = player === 1 ? "black" : "white";
+            ctx.fill();
+            ctx.stroke();
+        }
+        
+        function checkThreeThree(x, y, player) {
+            const directions = [
+                [[1, 0], [-1, 0]], // 가로
+                [[0, 1], [0, -1]], // 세로
+                [[1, 1], [-1, -1]], // 대각선 \ 
+                [[1, -1], [-1, 1]]  // 대각선 /
+            ];
+            let threeCount = 0;
+            
+            for (const [[dx1, dy1], [dx2, dy2]] of directions) {
+                let count = 1;
+                for (const [dx, dy] of [[dx1, dy1], [dx2, dy2]]) {
+                    let nx = x + dx, ny = y + dy;
+                    while (nx >= 0 && ny >= 0 && nx < size && ny < size && board[nx][ny] === player) {
+                        count++;
+                        nx += dx;
+                        ny += dy;
+                    }
+                }
+                if (count === 3) threeCount++;
+            }
+            return threeCount >= 2;
+        }
+        
+        function checkWin(x, y, player) {
+            const directions = [
+                [[1, 0], [-1, 0]], // 가로
+                [[0, 1], [0, -1]], // 세로
+                [[1, 1], [-1, -1]], // 대각선 \ 
+                [[1, -1], [-1, 1]]  // 대각선 /
+            ];
+            for (const [[dx1, dy1], [dx2, dy2]] of directions) {
+                let count = 1;
+                for (const [dx, dy] of [[dx1, dy1], [dx2, dy2]]) {
+                    let nx = x + dx, ny = y + dy;
+                    while (nx >= 0 && ny >= 0 && nx < size && ny < size && board[nx][ny] === player) {
+                        count++;
+                        nx += dx;
+                        ny += dy;
+                    }
+                }
+                if (count >= 5) return true;
+            }
+            return false;
+        }
+        
+        canvas.addEventListener("click", (event) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = Math.floor((event.clientX - rect.left) / cellSize);
+            const y = Math.floor((event.clientY - rect.top) / cellSize);
+            if (board[x][y] !== 0) return;
+            
+            if (currentPlayer === 1 && checkThreeThree(x, y, currentPlayer)) {
+                alert("흑은 3x3 금수 위치에 돌을 놓을 수 없습니다.");
+                return;
+            }
+            
+            board[x][y] = currentPlayer;
+            drawStone(x, y, currentPlayer);
+            
+            if (checkWin(x, y, currentPlayer)) {
+                document.getElementById("status").innerText = `${currentPlayer === 1 ? "검은 돌" : "흰 돌"} 승리!`;
+                canvas.style.pointerEvents = "none";
+                return;
+            }
+            
+            currentPlayer = 3 - currentPlayer;
+            document.getElementById("status").innerText = currentPlayer === 1 ? "검은 돌 차례" : "흰 돌 차례";
+        });
+        
+        drawBoard();
+    </script>
+</body>
+</html>
