@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>주동건 오목</title>
+    <link rel="stylesheet" href="omok.css" />
+  </head>
+
+  <body>
+    <div class="out-box">
+      <div class="in-box">
+        <div class="main-borad">
+          <canvas class="borad"></canvas>
+        </div>
+        <div class="menu">
+          <div class="menu-in">
+            <div class="ps">
+              <p>Play select</p>
+              <div class="player-type">
+                <div class="1p">
+                  <input type="radio" name="player" id="com" />
+                  <label for="com">1인용</label>
+                </div>
+                <div class="2p">
+                  <input type="radio" name="player" id="user" checked />
+                  <label for="user">2인용</label>
+                </div>
+              </div>
+            </div>
+            <div class="pys">
+              <p>Player select</p>
+              <div class="first-player">
+                <input
+                  type="image"
+                  name="black"
+                  src="/img/black.png"
+                  id="black"
+                  checked
+                />
+                <input
+                  type="image"
+                  name="white"
+                  src="/img/white.png"
+                  id="white"
+                />
+              </div>
+            </div>
+            <div class="time">
+              <p>Time</p>
+              <span class="timer-display">30</span>
+            </div>
+
+            <div class="button">
+              <button class="button-undo">무르기</button>
+              <button class="button-start">시작하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="omok.js"></script>
+  </body>
+</html>

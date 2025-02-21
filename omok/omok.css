@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.out-box {
+  padding: 20px;
+}
+
+.in-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 30px;
+}
+
+.main-borad {
+  padding: 10px;
+}
+
+.borad {
+  border: 1px solid black;
+  background-color: burlywood;
+  width: 700px;
+  height: 700px;
+}
+
+.menu {
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 40px;
+  background-color: rgb(240, 240, 240);
+}
+
+.menu-in {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 100px;
+}
+p {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.ps {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.player-type {
+  display: flex;
+  flex-direction: row;
+  column-gap: 40px;
+}
+
+.pys {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.first-player {
+  transform: scale(0.6);
+  display: flex;
+  flex-direction: row;
+  column-gap: 50px;
+}
+.timer-display {
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+  margin-top: 10px;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+
+.button-start,
+.button-undo {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  border: 1px solid cornflowerblue;
+  border-radius: 10px;
+  background-color: cornflowerblue;
+  width: 150px;
+  height: 50px;
+}
+
+.button-start:hover,
+.button-undo:hover {
+  opacity: 0.75;
+}
+
+.button-start:active,
+.button-undo:active {
+  opacity: 0.75;
+  transform: scale(0.95);
+}
