@@ -39,19 +39,20 @@ function makeMove(i, j) {
   currentPlayer = currentPlayer === "●" ? "O" : "●"; // 플레이어 바꾸기
   drawBoard();
 }
-function forbid(i, j){ // 33법칙 위배될 시 돌 제거
-  board[i][j]="●"
-  const three=checkThree(i, j);
-  board[i][j]=null
-  return three
+function forbid(i, j) {
+  // 33법칙 위배될 시 돌 제거
+  board[i][j] = "●";
+  const three = checkThree(i, j);
+  board[i][j] = null;
+  return three;
 }
-function checkThree(i, j){
+function checkThree(i, j) {
   let threeDirection = [];
   const direction = [
-    [0,1],
-    [1,0],
-    [1,1],
-    [1,-1]
+    [0, 1],
+    [1, 0],
+    [1, 1],
+    [1, -1],
   ];
 }
 
@@ -87,4 +88,4 @@ function checkLine(row, col, dRow, dCol) {
   return false;
 }
 
-resetBoard(); // 게임 시작
+resetBoard(); // 게임 시작dd
