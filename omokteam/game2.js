@@ -1,3 +1,5 @@
+// 잡아온 코드 
+
 const user1 = localStorage.getItem("user1");
 const user2 = localStorage.getItem("user2");
 const home = document.querySelector("#home");

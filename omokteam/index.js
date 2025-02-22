@@ -1,9 +1,9 @@
 const choB = document.querySelector("#imgB");
 const choW = document.querySelector("#imgW");
-const com = document.querySelector("#com");
+
 const user = document.querySelector("#useruser");
 const imgs = document.querySelectorAll(".img");
-const match = document.querySelector(".match");
+const match = document.querySelector(".match_div");
 const start = document.querySelector("#start");
 const B = document.querySelector("#B");
 const W = document.querySelector("#W");
@@ -11,7 +11,7 @@ const input1 = document.querySelector("#input1");
 const input2 = document.querySelector("#input2");
 const todo = document.querySelector(".todo");
 
-let user3 = 0;
+
 let user1 = "";
 let user2 = "";
 
@@ -24,7 +24,7 @@ user.addEventListener("click", () => {
     img.style.border = "5px solid rgb(253, 160, 21)";
     img.style.backgroundColor = "rgb(252, 182, 76)";
   });
-  com.style.display = "none";
+
   user.style.display = "none";
 
   const startButton = document.createElement("button");
@@ -170,68 +170,5 @@ const checkStartButton = () => {
   }
 };
 
-// 컴퓨터 선택
-
-com.addEventListener("click", () => {
-  todo.textContent = "흑돌/백돌을 선택하세요!";
-  imgs.forEach((img) => {
-    img.style.border = "5px solid rgb(253, 160, 21)";
-    img.style.backgroundColor = "rgb(252, 182, 76)";
-  });
-  com.style.display = "none";
-  user.style.display = "none";
-
-  const startButton = document.createElement("button");
-  startButton.textContent = "시작하기";
-  startButton.setAttribute("id", "start");
-  startButton.disabled = true; // 버튼 초기 비활성화
-  startButton.style.opacity = "0.5";
-  startButton.style.cursor = "not-allowed";
-
-  match.appendChild(startButton);
-
-  imgs.forEach((img) => {
-    img.addEventListener("mouseenter", () => {
-      img.style.transform = "scale(1.05)";
-      img.style.transition = "transform 0.3s ease";
-    });
-
-    img.addEventListener("mouseleave", () => {
-      img.style.transform = "scale(1)";
-    });
-  });
-
-  B.addEventListener("click", () => {
-    todo.textContent = "흑돌을 선택하셨군요! 게임을 시작하세요!";
-    user3 = "B";
-    checkStartButtonForCom();
-  });
-
-  W.addEventListener("click", () => {
-    todo.textContent = "백돌을 선택하셨군요! 게임을 시작하세요!";
-    user3 = "W";
-    checkStartButtonForCom();
-  });
-});
 
 // 컴퓨터 모드에서 시작 버튼 활성화
-const checkStartButtonForCom = () => {
-  const startButton = document.querySelector("#start");
-  if (user3 && startButton) {
-    startButton.disabled = false;
-    startButton.style.opacity = "1";
-    startButton.style.cursor = "pointer";
-
-    let isBlinking = true;
-    const blinkInterval = setInterval(() => {
-      startButton.style.opacity = isBlinking ? "0.5" : "1";
-      isBlinking = !isBlinking;
-    }, 500);
-
-    startButton.addEventListener("click", () => {
-      clearInterval(blinkInterval);
-      localStorage.setItem("user3", user3);
-      window.location.href = "com.html";
-    });
-  }
-};

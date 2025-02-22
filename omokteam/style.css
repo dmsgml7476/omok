@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Dongle&display=swap");
+/* 기본글꼴*/
+@import url("https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap");
+
+
 * {
   margin: 0;
   padding: 0;
@@ -17,8 +22,10 @@
 }
 
 .title {
-  margin-top: 100px;
+  margin-top: 80px;
   text-align: center;
+  font-size: 25px;
+  font-family: "Dongle", serif;
   /* border: 1px solid; */
 }
 
@@ -53,33 +60,49 @@
   justify-content: center;
 }
 
-.match {
+/* .match {
   width: 450px;
   height: 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 20px;
+  border: 1px solid;
+} */
+
+.match_div {
+  width: 200px;
+  height: 40px;
+  margin: 20px;
+  border: none;
+  background-color: rgb(250, 182, 80);
+  border-radius: 7px;
+  display: flex;
+  color: white;
+  justify-content: center;  
+  align-items: center;
 }
 
 .match_bnt {
-  width: 200px;
-  border: none;
-  background-color: rgb(100, 100, 255);
+  border: 1px solid rgb(43, 43, 43, 0.75);
+  background-color: rgb(250, 182, 80);
+  width: 192px;
+  height: 32px;
   color: white;
   font-weight: bold;
   font-size: 15px;
-  border-radius: 7px;
+  border-radius: 6px;
 }
 
 #start {
-  width: 200px;
+  width: 192px;
+  height: 32px;
   margin: 0 auto;
-  border: none;
-  background-color: rgb(100, 100, 255);
+  border: 1px solid rgb(43, 43, 43, 0.75);
+  background-color: rgb(250, 182, 80);
   color: white;
   font-weight: bold;
   font-size: 15px;
-  border-radius: 7px;
+  border-radius: 6px;
 }
 
 .todo {

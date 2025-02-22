@@ -1,4 +1,5 @@
-/* 타이틀 글꼴 */
+
+/* 나눔타이틀 글꼴 */
 @import url("https://fonts.googleapis.com/css2?family=Dongle&display=swap");
 /* 기본글꼴*/
 @import url("https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap");
@@ -131,7 +132,7 @@
   width: 200px;
   border: none;
   height: 40px;
-  background-color: rgb(100, 100, 255);
+  background-color: rgb(61, 61, 61);
   color: white;
   font-weight: bold;
   font-size: 30px;

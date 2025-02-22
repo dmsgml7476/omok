@@ -1,10 +1,18 @@
+/* 타이틀 글꼴 */
+@import url("https://fonts.googleapis.com/css2?family=Dongle&display=swap");
+/* 기본글꼴*/
+@import url("https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Dongle", serif;
 }
 
 /* 게임 윈도우우 */
+
+
 
 .window {
   width: 700px;
@@ -19,12 +27,30 @@
 /* 헤더 영역역 */
 
 .title {
+  display: flex;
   text-align: center;
+  font-size: 25px;
+  font-family: "Dongle", serif;
   /* border: 1px solid; */
-  margin: 10px;
 }
 
-/* 차례 정보보 */
+.img_top {
+  margin-top: 20px;
+  width: 50px;
+  height: 48px;
+}
+
+#black_top {
+  visibility: hidden;
+  margin-right: 65px;
+}
+
+#white_top {
+  visibility: hidden;
+  margin-left: 65px;
+}
+
+/* 차례 정보 */
 
 .turn_box {
   width: 600px;
@@ -48,7 +74,7 @@
 
 .board {
   margin: 10px;
-  /* border: 1px solid; */
+  border: 5px solid #e49902;
   width: 600px;
   height: 600px;
   display: flex;
@@ -95,20 +121,20 @@
 
 .btn_box {
   width: 600px;
-  height: 40px;
+  height: 80px;
   display: flex;
-
+  align-items: center;
   justify-content: space-between;
-  margin: 20px;
 }
 
 .btn {
   width: 200px;
   border: none;
+  height: 40px;
   background-color: rgb(100, 100, 255);
   color: white;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 30px;
   border-radius: 7px;
 }
 
@@ -163,7 +189,8 @@
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
-  font-size: 20px;
+  font-size: 50px;
+  line-height: 1;
   font-weight: bold;
   z-index: 2; /* 이미지보다 위에 배치 */
 }
@@ -197,4 +224,853 @@ img {
 
 #closeModal:hover {
   background: #ffaa00;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffaa00;
+  border-radius: 7px;
+  width: 65px;
+  height: 75px;
+
+  background-color: rgb(250, 182, 80);
+}
+
+.time p {
+  color: rgb(49, 49, 49);
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 0.9;
+}
+.timer-display {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 0.5;
+  color: rgb(255, 255, 255);
+}
+
+.line {
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  border-radius: 4px;
+  width: 55px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.end {
+  font-size: 30px;
+  line-height: 1;
+}
+/* 타이틀 글꼴 */
+@import url("https://fonts.googleapis.com/css2?family=Dongle&display=swap");
+/* 기본글꼴*/
+@import url("https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Dongle", serif;
+}
+
+/* 게임 윈도우우 */
+
+
+
+.window {
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid; */
+}
+
+/* 헤더 영역역 */
+
+.title {
+  display: flex;
+  text-align: center;
+  font-size: 25px;
+  font-family: "Dongle", serif;
+  /* border: 1px solid; */
+}
+
+.img_top {
+  margin-top: 20px;
+  width: 50px;
+  height: 48px;
+}
+
+#black_top {
+  visibility: hidden;
+  margin-right: 65px;
+}
+
+#white_top {
+  visibility: hidden;
+  margin-left: 65px;
+}
+
+/* 차례 정보 */
+
+.turn_box {
+  width: 600px;
+  /* border: 1px solid; */
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+}
+
+.turn {
+  /* border: 1px solid; */
+  width: 100px;
+  font-size: 30px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 오목판판 */
+
+.board {
+  margin: 10px;
+  border: 5px solid #e49902;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(250, 182, 80);
+}
+
+.table {
+  position: absolute;
+  border: 1px solid;
+  width: 550px;
+  height: 550px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.square {
+  border: 1px solid;
+  padding: 0;
+}
+
+/* 오목돌 영역 */
+
+.go {
+  position: absolute;
+  margin: 10px;
+  width: 586px;
+  height: 586px;
+  border-collapse: collapse;
+}
+
+.black {
+  background-color: black;
+  border-radius: 100%;
+}
+
+.white {
+  background-color: white;
+  border-radius: 100%;
+}
+
+/* 재시작, 홈홈 */
+
+.btn_box {
+  width: 600px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 200px;
+  border: none;
+  height: 40px;
+  background-color: rgb(100, 100, 255);
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 7px;
+}
+
+/* 승리 모달 */
+#winModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+}
+
+.modal-content {
+  position: relative;
+
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 250px;
+  height: 280px;
+  margin: 0 auto;
+  margin-top: 315px;
+}
+
+.winnerIT {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#winnerImage {
+  width: 200px; /* 이미지 크기 조정 */
+  height: auto;
+  position: relative;
+  opacity: 0.95;
+  z-index: 1; /* 이미지보다 winnertBox가 위에 오도록 설정 */
+}
+
+.winnertBox {
+  position: absolute;
+  top: 120px; /* 이미지 위쪽 중앙 배치 */
+  left: 53%;
+  width: 220px;
+  transform: translate(-50%, -100%);
+  background: rgba(255, 169, 169, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: bold;
+  z-index: 2; /* 이미지보다 위에 배치 */
+}
+
+.modal-content > button {
+  background-color: rgb(194, 180, 255);
+  color: white;
+  width: 100px;
+  left: 53%;
+  height: 30px;
+  margin-top: 20px;
+  border-radius: 25px;
+  border: none;
+}
+
+img {
+  width: 300px;
+  height: 300px;
+}
+
+#closeModal {
+  background: #ffcc00;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#closeModal:hover {
+  background: #ffaa00;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffaa00;
+  border-radius: 7px;
+  width: 65px;
+  height: 75px;
+
+  background-color: rgb(250, 182, 80);
+}
+
+.time p {
+  color: rgb(49, 49, 49);
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 0.9;
+}
+.timer-display {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 0.5;
+  color: rgb(255, 255, 255);
+}
+
+.line {
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  border-radius: 4px;
+  width: 55px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.end {
+  font-size: 30px;
+  line-height: 1;
+}
+/* 타이틀 글꼴 */
+@import url("https://fonts.googleapis.com/css2?family=Dongle&display=swap");
+/* 기본글꼴*/
+@import url("https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Dongle", serif;
+}
+
+/* 게임 윈도우우 */
+
+
+
+.window {
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid; */
+}
+
+/* 헤더 영역역 */
+
+.title {
+  display: flex;
+  text-align: center;
+  font-size: 25px;
+  font-family: "Dongle", serif;
+  /* border: 1px solid; */
+}
+
+.img_top {
+  margin-top: 20px;
+  width: 50px;
+  height: 48px;
+}
+
+#black_top {
+  visibility: hidden;
+  margin-right: 65px;
+}
+
+#white_top {
+  visibility: hidden;
+  margin-left: 65px;
+}
+
+/* 차례 정보 */
+
+.turn_box {
+  width: 600px;
+  /* border: 1px solid; */
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+}
+
+.turn {
+  /* border: 1px solid; */
+  width: 100px;
+  font-size: 30px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 오목판판 */
+
+.board {
+  margin: 10px;
+  border: 5px solid #e49902;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(250, 182, 80);
+}
+
+.table {
+  position: absolute;
+  border: 1px solid;
+  width: 550px;
+  height: 550px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.square {
+  border: 1px solid;
+  padding: 0;
+}
+
+/* 오목돌 영역 */
+
+.go {
+  position: absolute;
+  margin: 10px;
+  width: 586px;
+  height: 586px;
+  border-collapse: collapse;
+}
+
+.black {
+  background-color: black;
+  border-radius: 100%;
+}
+
+.white {
+  background-color: white;
+  border-radius: 100%;
+}
+
+/* 재시작, 홈홈 */
+
+.btn_box {
+  width: 600px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 200px;
+  border: none;
+  height: 40px;
+  background-color: rgb(100, 100, 255);
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 7px;
+}
+
+/* 승리 모달 */
+#winModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+}
+
+.modal-content {
+  position: relative;
+
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 250px;
+  height: 280px;
+  margin: 0 auto;
+  margin-top: 315px;
+}
+
+.winnerIT {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#winnerImage {
+  width: 200px; /* 이미지 크기 조정 */
+  height: auto;
+  position: relative;
+  opacity: 0.95;
+  z-index: 1; /* 이미지보다 winnertBox가 위에 오도록 설정 */
+}
+
+.winnertBox {
+  position: absolute;
+  top: 120px; /* 이미지 위쪽 중앙 배치 */
+  left: 53%;
+  width: 220px;
+  transform: translate(-50%, -100%);
+  background: rgba(255, 169, 169, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: bold;
+  z-index: 2; /* 이미지보다 위에 배치 */
+}
+
+.modal-content > button {
+  background-color: rgb(194, 180, 255);
+  color: white;
+  width: 100px;
+  left: 53%;
+  height: 30px;
+  margin-top: 20px;
+  border-radius: 25px;
+  border: none;
+}
+
+img {
+  width: 300px;
+  height: 300px;
+}
+
+#closeModal {
+  background: #ffcc00;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#closeModal:hover {
+  background: #ffaa00;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffaa00;
+  border-radius: 7px;
+  width: 65px;
+  height: 75px;
+
+  background-color: rgb(250, 182, 80);
+}
+
+.time p {
+  color: rgb(49, 49, 49);
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 0.9;
+}
+.timer-display {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 0.5;
+  color: rgb(255, 255, 255);
+}
+
+.line {
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  border-radius: 4px;
+  width: 55px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.end {
+  font-size: 30px;
+  line-height: 1;
+}
+/* 타이틀 글꼴 */
+@import url("https://fonts.googleapis.com/css2?family=Dongle&display=swap");
+/* 기본글꼴*/
+@import url("https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Dongle", serif;
+}
+
+/* 게임 윈도우우 */
+
+
+
+.window {
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid; */
+}
+
+/* 헤더 영역역 */
+
+.title {
+  display: flex;
+  text-align: center;
+  font-size: 25px;
+  font-family: "Dongle", serif;
+  /* border: 1px solid; */
+}
+
+.img_top {
+  margin-top: 20px;
+  width: 50px;
+  height: 48px;
+}
+
+#black_top {
+  visibility: hidden;
+  margin-right: 65px;
+}
+
+#white_top {
+  visibility: hidden;
+  margin-left: 65px;
+}
+
+/* 차례 정보 */
+
+.turn_box {
+  width: 600px;
+  /* border: 1px solid; */
+  display: flex;
+  margin: 10px;
+  justify-content: space-around;
+}
+
+.turn {
+  /* border: 1px solid; */
+  width: 100px;
+  font-size: 30px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 오목판판 */
+
+.board {
+  margin: 10px;
+  border: 5px solid #e49902;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(250, 182, 80);
+}
+
+.table {
+  position: absolute;
+  border: 1px solid;
+  width: 550px;
+  height: 550px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.square {
+  border: 1px solid;
+  padding: 0;
+}
+
+/* 오목돌 영역 */
+
+.go {
+  position: absolute;
+  margin: 10px;
+  width: 586px;
+  height: 586px;
+  border-collapse: collapse;
+}
+
+.black {
+  background-color: black;
+  border-radius: 100%;
+}
+
+.white {
+  background-color: white;
+  border-radius: 100%;
+}
+
+/* 재시작, 홈홈 */
+
+.btn_box {
+  width: 600px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 200px;
+  border: none;
+  height: 40px;
+  background-color: rgb(100, 100, 255);
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 7px;
+}
+
+/* 승리 모달 */
+#winModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+}
+
+.modal-content {
+  position: relative;
+
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 250px;
+  height: 280px;
+  margin: 0 auto;
+  margin-top: 315px;
+}
+
+.winnerIT {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#winnerImage {
+  width: 200px; /* 이미지 크기 조정 */
+  height: auto;
+  position: relative;
+  opacity: 0.95;
+  z-index: 1; /* 이미지보다 winnertBox가 위에 오도록 설정 */
+}
+
+.winnertBox {
+  position: absolute;
+  top: 120px; /* 이미지 위쪽 중앙 배치 */
+  left: 53%;
+  width: 220px;
+  transform: translate(-50%, -100%);
+  background: rgba(255, 169, 169, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: bold;
+  z-index: 2; /* 이미지보다 위에 배치 */
+}
+
+.modal-content > button {
+  background-color: rgb(194, 180, 255);
+  color: white;
+  width: 100px;
+  left: 53%;
+  height: 30px;
+  margin-top: 20px;
+  border-radius: 25px;
+  border: none;
+}
+
+img {
+  width: 300px;
+  height: 300px;
+}
+
+#closeModal {
+  background: #ffcc00;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#closeModal:hover {
+  background: #ffaa00;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffaa00;
+  border-radius: 7px;
+  width: 65px;
+  height: 75px;
+
+  background-color: rgb(250, 182, 80);
+}
+
+.time p {
+  color: rgb(49, 49, 49);
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 0.9;
+}
+.timer-display {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 0.5;
+  color: rgb(255, 255, 255);
+}
+
+.line {
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  border-radius: 4px;
+  width: 55px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.end {
+  font-size: 30px;
+  line-height: 1;
 }
