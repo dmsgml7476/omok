@@ -44,48 +44,50 @@ for (let i = 0; i < game.length; i++) {
 }
 
 let turn = "B";
+function placeStone(row, col) {
+  if (game[row][col] !== undefined) return; // 이미 돌이 있으면 무시
 
-let tds = document.querySelectorAll(".go td");
-tds.forEach((item) => {
+  game[row][col] = turn;
+  let myTurn = turn === "B";
+
+  let item = document.getElementById(`${row}-${col}`);
+  if (myTurn) {
+    item.classList.add("black");
+    white.style.textDecoration = "underline";
+    black.style.textDecoration = "none";
+  } else {
+    item.classList.add("white");
+    white.style.textDecoration = "none";
+    black.style.textDecoration = "underline";
+  }
+
+  // 승리 체크
+  if (checkWin(row, col, turn)) {
+    let winner = myTurn ? "흑돌" : "백돌";
+    let imageSrc = myTurn ? "img/흑돌.png" : "img/백돌.png";
+
+    setTimeout(() => {
+      showWinModal(winner, imageSrc);
+    }, 100);
+  }
+
+  turn = myTurn ? "W" : "B";
+  console.log(turn);
+  resetTimer(); // 착수 시 타이머 초기화
+}
+
+// 클릭 이벤트에서 placeStone 호출
+document.querySelectorAll(".go td").forEach((item) => {
   item.addEventListener("click", () => {
-    // 위치 체크
-    let row = Number(item.id.substring(0, item.id.indexOf("-")));
-    let col = Number(item.id.substring(item.id.indexOf("-") + 1));
+    let row = Number(item.id.split("-")[0]);
+    let col = Number(item.id.split("-")[1]);
 
-    if (check3x3(row, col)) {
-      console.log("금지 되었다니까!!!");
+    if (!check3x3(row, col)) {
+      placeStone(row, col);
     } else {
-      if (game[row][col] === undefined) {
-        game[row][col] = turn;
-        let myTurn = turn === "B";
-        if (myTurn) {
-          item.classList.add("black");
-          white.style.textDecoration = "underline";
-
-          black.style.textDecoration = "none";
-        } else {
-          item.classList.add("white");
-          white.style.textDecoration = "none";
-          black.style.textDecoration = "underline";
-        }
-
-        // 승리 체크
-        if (checkWin(row, col, turn)) {
-          let winner = myTurn ? "흑돌" : "백돌";
-          let imageSrc = myTurn ? "img/흑돌.png" : "img/백돌.png";
-
-          setTimeout(() => {
-            showWinModal(winner, imageSrc);
-          }, 100); // 0.1초 후 실행
-        }
-
-        turn = myTurn ? "W" : "B";
-        console.log(turn);
-        resetTimer(); // 착수 시 타이머 초기화
-      }
+      console.log("금지된 자리!");
     }
   });
-  // 돌 놓기
 });
 
 function checkWin(row, col, turn) {
