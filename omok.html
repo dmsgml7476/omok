@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오목 게임</title>
+    <style>
+      #board {
+        display: grid;
+        grid-template-columns: repeat(15, 30px);
+        grid-template-rows: repeat(15, 30px);
+        gap: 1px;
+      }
+      .cell {
+        width: 30px;
+        height: 30px;
+        background-color: #e0e0e0;
+        border: 1px solid #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cell.black {
+        background-color: black;
+      }
+      .cell.white {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>오목 게임</h1>
+    <div id="board"></div>
+    <script src="omok.js"></script>
+  </body>
+</html>
