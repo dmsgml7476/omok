@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오목 게임</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="window">
+      <header class="title">
+        <h1>즐거운 오목</h1>
+      </header>
+
+      <div class="imgBox">
+        <div class="tooltip" id="ttW">
+          <div class="img" id="B">
+            <img src="img/흑돌.png" id="imgB" style="width: 150px" />
+            <div class="textT" id="input1">Black</div>
+          </div>
+          <span class="tooltip-text"
+            >흑돌은 선공입니다. 선공이 유리하기 때문에 여러 제약이 있습니다.
+            금수룰(3x3)이 적용되어 좀 더 어려워질거에요. 유리한 만큼 핸디캡은
+            기본이죠.</span
+          >
+        </div>
+        <div class="tooltip" id="ttW">
+          <div class="img" id="W">
+            <img src="img/백돌.png" id="imgW" style="width: 150px" />
+
+            <div class="textT" id="input2">White</div>
+          </div>
+          <span class="tooltip-text"
+            >백돌은 후공입니다. 선공인 흑돌보다 불리하기에 제약이 없습니다.
+            하지만 방심하지마세요. 당신은 언제나 쫒아가는 입장입니다.</span
+          >
+        </div>
+      </div>
+      <div class="todo">원하는 모드를 클릭하세요!</div>
+
+      <div class="match">
+        <button class="match_bnt" id="com">컴퓨터</button>
+        <div></div>
+        <button class="match_bnt" id="useruser">2인용</button>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
