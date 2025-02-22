@@ -1,7 +1,13 @@
+/* 타이틀 글꼴 */
+@import url("https://fonts.googleapis.com/css2?family=Dongle&display=swap");
+/* 기본글꼴*/
+@import url("https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Dongle", serif;
 }
 
 /* 게임 윈도우우 */
@@ -20,8 +26,9 @@
 
 .title {
   text-align: center;
+  font-size: 25px;
+  font-family: "Dongle", serif;
   /* border: 1px solid; */
-  margin: 10px;
 }
 
 /* 차례 정보보 */
@@ -48,7 +55,7 @@
 
 .board {
   margin: 10px;
-  /* border: 1px solid; */
+  border: 5px solid #e49902;
   width: 600px;
   height: 600px;
   display: flex;
@@ -95,20 +102,20 @@
 
 .btn_box {
   width: 600px;
-  height: 40px;
+  height: 80px;
   display: flex;
-
+  align-items: center;
   justify-content: space-between;
-  margin: 20px;
 }
 
 .btn {
   width: 200px;
   border: none;
+  height: 40px;
   background-color: rgb(100, 100, 255);
   color: white;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 30px;
   border-radius: 7px;
 }
 
@@ -163,7 +170,8 @@
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
-  font-size: 20px;
+  font-size: 50px;
+  line-height: 1;
   font-weight: bold;
   z-index: 2; /* 이미지보다 위에 배치 */
 }
@@ -197,4 +205,46 @@ img {
 
 #closeModal:hover {
   background: #ffaa00;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffaa00;
+  border-radius: 7px;
+  width: 65px;
+  height: 75px;
+
+  background-color: rgb(250, 182, 80);
+}
+
+.time p {
+  color: rgb(49, 49, 49);
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 0.9;
+}
+.timer-display {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 0.5;
+  color: rgb(255, 255, 255);
+}
+
+.line {
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  border-radius: 4px;
+  width: 55px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.end {
+  font-size: 30px;
+  line-height: 1;
 }

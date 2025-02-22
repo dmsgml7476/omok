@@ -63,12 +63,14 @@ function placeStone(row, col) {
 
   // 승리 체크
   if (checkWin(row, col, turn)) {
+    stopTimer();
     let winner = myTurn ? "흑돌" : "백돌";
     let imageSrc = myTurn ? "img/흑돌.png" : "img/백돌.png";
 
     setTimeout(() => {
       showWinModal(winner, imageSrc);
     }, 100);
+    return;
   }
 
   turn = myTurn ? "W" : "B";
@@ -139,6 +141,7 @@ function checkWin(row, col, turn) {
 
     // 5개 이상일 경우 승리
     if (cnt >= 5) {
+      stopTimer();
       return true;
     }
   }
