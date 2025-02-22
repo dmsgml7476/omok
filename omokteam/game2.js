@@ -6,6 +6,8 @@ const table = document.querySelector(".table");
 const go = document.querySelector(".go");
 const restart = document.querySelector("#reset");
 const userB = document.querySelector("#black");
+const wT = document.querySelector("#white_top")
+const bT = document.querySelector("#black_top")
 
 const userW = document.querySelector("#white");
 
@@ -13,8 +15,11 @@ const userW = document.querySelector("#white");
 
 white.style.textDecoration = "none";
 white.textContent = user2;
+bT.style.visibility = "visible";
+wT.style.visibility = "hidden";
 
 black.style.textDecoration = "underline";
+black.style.textUnderlineOffset = "10px";
 black.textContent = user1;
 
 for (var i = 0; i < 14; i++) {
@@ -43,6 +48,8 @@ for (let i = 0; i < game.length; i++) {
   game[i] = new Array(17);
 }
 
+// 오목 돌을 두는 코드
+
 let turn = "B";
 function placeStone(row, col) {
   if (game[row][col] !== undefined) return; // 이미 돌이 있으면 무시
@@ -54,11 +61,21 @@ function placeStone(row, col) {
   if (myTurn) {
     item.classList.add("black");
     white.style.textDecoration = "underline";
+    white.style.textUnderlineOffset = "10px";
+    wT.style.visibility = "visible";
+    bT.style.visibility = "hidden";
+
+
+
     black.style.textDecoration = "none";
   } else {
     item.classList.add("white");
     white.style.textDecoration = "none";
     black.style.textDecoration = "underline";
+    black.style.textUnderlineOffset = "10px";
+
+    bT.style.visibility = "visible";
+    wT.style.visibility = "hidden";
   }
 
   // 승리 체크

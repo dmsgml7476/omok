@@ -12,6 +12,8 @@
 
 /* 게임 윈도우우 */
 
+
+
 .window {
   width: 700px;
   margin: 0 auto;
@@ -25,13 +27,30 @@
 /* 헤더 영역역 */
 
 .title {
+  display: flex;
   text-align: center;
   font-size: 25px;
   font-family: "Dongle", serif;
   /* border: 1px solid; */
 }
 
-/* 차례 정보보 */
+.img_top {
+  margin-top: 20px;
+  width: 50px;
+  height: 48px;
+}
+
+#black_top {
+  visibility: hidden;
+  margin-right: 65px;
+}
+
+#white_top {
+  visibility: hidden;
+  margin-left: 65px;
+}
+
+/* 차례 정보 */
 
 .turn_box {
   width: 600px;
