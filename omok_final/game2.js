@@ -17,10 +17,10 @@ white.textContent = user2;
 black.style.textDecoration = "underline";
 black.textContent = user1;
 
-for (var i = 0; i < 16; i++) {
+for (var i = 0; i < 14; i++) {
   let tr = document.createElement("tr");
   table.appendChild(tr);
-  for (var j = 0; j < 16; j++) {
+  for (var j = 0; j < 14; j++) {
     let td = document.createElement("td");
     td.setAttribute("class", "square");
     tr.appendChild(td);
