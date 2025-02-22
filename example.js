@@ -1,7 +1,49 @@
+let timer = 30;
+let timerInterval;
 let board = [];
 const BOARD_SIZE = 19;
 let currentPlayer = "●";
 
+function updaterTimer() {
+  const timerElement = document.getElementById("timer");
+  timerElement.textContent = `타이머: ${timer}`;
+  if (timer === 0) {
+    alert(`${currentPlayer}의 시간이 다 되었습니다!`);
+    switchPlayer(); // 시간이 다 되면 턴 변경
+  } else {
+    timer--;
+  }
+}
+function switchPlayer() {
+  currentPlayer = currentPlayer === "●" ? "○" : "●";
+  resetTimer();
+}
+function resetTimer() {
+  timer = 30;
+  clearInterval(timerInterval);
+  timerInterval = setInterval(updaterTimer, 1000);
+}
+const boardElement = document.getElementById("board");
+for (let row = 0; row < 19; row++) {
+  for (let col = 0; col < 19; col++) {
+    const cell = document.createElement("div");
+    cell.style.width = "30px";
+    cell.style.height = "30px";
+    cell.style.border = "1px solid #ddd";
+    cell.style.textAlign = "center";
+    cell.style.lineHeight = "30px";
+    cell.style.fontSize = "20px";
+    cell.style.cursor = "pointer";
+    cell.addEventListener("click", () => handleMove(row, col, cell));
+    boardElement.appendChild(cell);
+  }
+}
+function handleMove(row, col, cell) {
+  if (cell.textContent !== "") return; // 이미 돌이 놓여 있으면 무시
+
+  cell.textContent = currentPlayer === "●" ? "●" : "○"; // 현재 플레이어의 돌 놓기
+  switchPlayer(); // 턴 변경
+}
 // 게임판 초기화
 function resetBoard() {
   board = Array(BOARD_SIZE)
@@ -36,7 +78,7 @@ function makeMove(i, j) {
     resetBoard();
     return;
   }
-  currentPlayer = currentPlayer === "●" ? "O" : "●"; // 플레이어 바꾸기
+  currentPlayer = currentPlayer === "●" ? "○" : "●"; // 플레이어 바꾸기
   drawBoard();
 }
 function forbid(i, j) {
@@ -89,3 +131,4 @@ function checkLine(row, col, dRow, dCol) {
 }
 
 resetBoard(); // 게임 시작dd
+resetTimer(); // 타이머 시작
