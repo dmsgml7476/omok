@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오목 게임</title>
+    <link rel="stylesheet" href="com.css" />
+  </head>
+  <body>
+    <div class="window">
+      <header class="title">
+        <h1>즐거운 오목</h1>
+      </header>
+
+      <div class="turn_box">
+        <div class="turn" id="black">Black</div>
+        <div class="turn" id="white">White</div>
+      </div>
+
+      <div class="board">
+        <table class="table"></table>
+        <table class="go"></table>
+      </div>
+
+      <div class="btn_box">
+        <button class="btn" id="reset">재시작</button>
+        <div></div>
+        <button class="btn" id="home">HOME</button>
+      </div>
+    </div>
+
+    <div id="winModal" class="modal">
+      <div class="modal-content">
+        <div class="winnerIT">
+          <img id="winnerImage" src="" alt="승리 이미지" />
+
+          <div class="winnertBox">
+            <p id="winnerText"></p>
+          </div>
+        </div>
+
+        <button onclick="closeModal()">재대결</button>
+        <button onclick="closeModalOnly()">판보기</button>
+      </div>
+    </div>
+
+    <script src="com.js"></script>
+  </body>
+</html>
