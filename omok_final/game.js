@@ -1,3 +1,5 @@
+// 잡아온 코드
+
 const user1 = localStorage.getItem("user1");
 const user2 = localStorage.getItem("user2");
 const home = document.querySelector("#home");
@@ -6,8 +8,8 @@ const table = document.querySelector(".table");
 const go = document.querySelector(".go");
 const restart = document.querySelector("#reset");
 const userB = document.querySelector("#black");
-const wT = document.querySelector("#white_top")
-const bT = document.querySelector("#black_top")
+const wT = document.querySelector("#white_top");
+const bT = document.querySelector("#black_top");
 
 const userW = document.querySelector("#white");
 
@@ -64,8 +66,6 @@ function placeStone(row, col) {
     white.style.textUnderlineOffset = "10px";
     wT.style.visibility = "visible";
     bT.style.visibility = "hidden";
-
-
 
     black.style.textDecoration = "none";
   } else {

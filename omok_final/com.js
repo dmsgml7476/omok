@@ -9,9 +9,7 @@ const userB = document.querySelector("#black");
 const userW = document.querySelector("#white");
 
 white.style.textDecoration = "none";
-white.textContent = user2;
 black.style.textDecoration = "underline";
-black.textContent = user1;
 
 for (var i = 0; i < 16; i++) {
   let tr = document.createElement("tr");
